@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: glodjib_api_development
+  pool: 5
+  username: postgres
+  password: postgres
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: glodjib_api_test
+  pool: 5
+  username: postgres
+  password: postgres
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: glodjib_api_production
+  pool: 5
+  username: postgres
+  password: postgres
+
+cucumber:
+  <<: *test

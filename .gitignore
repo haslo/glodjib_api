@@ -1,0 +1,6 @@
+/.bundle
+/config/later_database.yml
+
+/log/*
+!/log/.keep
+/tmp
