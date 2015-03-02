@@ -1,8 +1,19 @@
 (function() {
   var app = angular.module('glodjib', []);
 
-  app.controller('HomeController', function() {
+  app.controller('ImagesController', function() {
     this.coverImages = images;
+    this.imageIndex = 0;
+
+    this.setImageIndex = function(index) {
+      this.imageIndex = index;
+    };
+    this.imageUrl = function() {
+      return this.coverImages[this.imageIndex].url;
+    };
+    this.tabIsSelected = function(index) {
+      return index === this.imageIndex;
+    };
   });
 
   var images = [

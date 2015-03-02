@@ -6,17 +6,17 @@
     <script type="text/javascript" src="assets/angular.min.js"></script>
     <script type="text/javascript" src="assets/app.js"></script>
 
-    <div ng-controller="HomeController as home" ng-init="imageIndex = 0">
+    <div ng-controller="ImagesController as images">
       <nav class='navbar navbar-default navbar-static-top navbar-inverse' role='navigation'>
         <div class='collapse navbar-collapse' id='navigation'>
           <ul class='nav navbar-nav'>
-            <li ng-repeat="image in home.coverImages" ng-class="{active: $parent.imageIndex === $index}">
-              <a href ng-click="$parent.imageIndex = $index">{{image.title}}</a>
+            <li ng-repeat="image in images.coverImages" ng-class="{active: images.tabIsSelected($index)}">
+              <a href ng-click="images.setImageIndex($index)">{{image.title}}</a>
             </li>
           </ul>
         </div>
       </nav>
-      <img ng-src="{{home.coverImages[imageIndex].url}}">
+      <img ng-src="{{images.imageUrl()}}">
     </div>
   </body>
 </html>
