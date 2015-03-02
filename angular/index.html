@@ -4,11 +4,19 @@
   </head>
   <body>
     <script type="text/javascript" src="assets/angular.min.js"></script>
-    <script type="text/javascript" src="assets/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/app.js"></script>
 
-    <div ng-controller="HomeController as home">
-      <img src="{{home.coverImage.url}}" />
+    <div ng-controller="HomeController as home" ng-init="imageIndex = 0">
+      <nav class='navbar navbar-default navbar-static-top navbar-inverse' role='navigation'>
+        <div class='collapse navbar-collapse' id='navigation'>
+          <ul class='nav navbar-nav'>
+            <li ng-repeat="image in home.coverImages" ng-class="{active: $parent.imageIndex === $index}">
+              <a href ng-click="$parent.imageIndex = $index">{{image.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <img ng-src="{{home.coverImages[imageIndex].url}}">
     </div>
   </body>
 </html>
